@@ -34,7 +34,6 @@ from lxml.html import fromstring
 # Personal API key
 import umls_api_key
 
-
 # Globals ####################################################################
 
 uri="https://utslogin.nlm.nih.gov"
@@ -47,11 +46,10 @@ class Authentication():
     '''
     https://documentation.uts.nlm.nih.gov/rest/authentication.html
     '''
-    
+ 
     def __init__(self, apikey):
         self.apikey=apikey
         self.service = "http://umlsks.nlm.nih.gov"
-
 
     def get_tgt(self):
         '''
@@ -66,7 +64,6 @@ class Authentication():
         response = fromstring(r.text)
         tgt = response.xpath('//form/@action')[0]
         return tgt
-    
 
     def get_st(self, tgt):
         '''
@@ -81,7 +78,6 @@ class Authentication():
         st = r.text
         return st
         
-    
     
 class searchUMLS():
     
@@ -210,10 +206,6 @@ class searchUMLS():
         return df
     
 
-    
-    
-  
-#%%
 
 if __name__ == "__main__":
     
